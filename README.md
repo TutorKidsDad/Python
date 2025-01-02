@@ -34,5 +34,3 @@ Welcome to this collection of Python scripts and projects! This repository is de
 Feel free to fork, contribute, or suggest improvements! 
 
 ---
-
-This description can be tailored further depending on the specific content and goals of your Python code repository.
