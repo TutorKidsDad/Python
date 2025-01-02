@@ -73,6 +73,14 @@ Once installed, verify the installation again by running `python3 --version`.
 ### 3. **Setting Up a Virtual Environment (Optional but Recommended)**
 
 For project isolation and to manage dependencies effectively, it's a good practice to use a virtual environment. This ensures that you can work on different projects with different dependency versions without conflicts.
+-On Debian/Ubuntu systems, you need to install the python3-venv
+package using the following command.
+
+    apt install python3.12-venv
+
+You may need to use sudo with that command.  After installing the python3-venv
+package, recreate your virtual environment.
+
 
 - To create a virtual environment, you need the `venv` module (usually included with Python 3.x).
   ```bash
