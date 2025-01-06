@@ -72,11 +72,11 @@ Once installed, verify the installation again by running `python3 --version`.
 
 ### 3. **Setting Up a Virtual Environment (Optional but Recommended)**
 
-# Installing Python Packages on Ubuntu/Debian
+#### Installing Python Packages on Ubuntu/Debian
 
 There are several methods you can use to install Python packages on Ubuntu/Debian systems. Below are some of the most common approaches:
 
-## 1. Install Python Package Using APT
+##### 1. Install Python Package Using APT
 
 You can install certain Python packages directly from the system's package manager (`APT`). For example, to install the `requests` library for Python 3:
 
@@ -88,9 +88,9 @@ This method installs the library system-wide, and the package will be available 
 
 **Note:** Not all packages on PyPI (Python Package Index) are available via APT. Some packages may not be packaged or included in the Debian/Ubuntu repositories.
 
-## 2. Create a Virtual Environment Using `venv` or `virtualenv`
+##### 2. Create a Virtual Environment Using `venv` or `virtualenv`
 
-### Install `venv`
+###### Install `venv`
 
 First, ensure that the `venv` package is installed:
 
@@ -98,7 +98,7 @@ First, ensure that the `venv` package is installed:
 sudo apt install python3-venv
 ```
 
-### Create a Virtual Environment
+###### Create a Virtual Environment
 
 To create a virtual environment in a directory named `.venv`, use the following command:
 
@@ -106,7 +106,7 @@ To create a virtual environment in a directory named `.venv`, use the following 
 python3 -m venv .venv
 ```
 
-### Activate the Virtual Environment
+###### Activate the Virtual Environment
 
 To activate the virtual environment and modify your `PATH` environment variable, run:
 
@@ -122,7 +122,7 @@ pip install requests
 
 Packages will be installed under the `.venv/` directory and will only be available when the virtual environment is activated.
 
-### Deactivate the Virtual Environment
+###### Deactivate the Virtual Environment
 
 To leave the virtual environment, simply run:
 
@@ -130,7 +130,7 @@ To leave the virtual environment, simply run:
 deactivate
 ```
 
-### Alternative: Run Python Executables Directly
+###### Alternative: Run Python Executables Directly
 
 If you prefer not to activate or deactivate the virtual environment every time, you can run executables by specifying their path:
 
@@ -142,7 +142,20 @@ If you prefer not to activate or deactivate the virtual environment every time, 
 ```
 As you can see, pipx installed a symlink in ~/.local/share/pipx/venvs/pycowsay/bin to the executable in a virtual environment:
 
-$ ls -l ~/.local/share/pipx/venvs/pycowsay/bin
+Here's the output you've provided, formatted in markdown:
+
+```markdown
+### Checking the Executable Files in `pipx` Virtual Environment
+
+You can also inspect the files within the virtual environment created by `pipx` by looking at the `bin/` directory. Here's an example of what you might find in the `~/.local/share/pipx/venvs/pycowsay/bin/` directory:
+
+```bash
+ls -l ~/.local/share/pipx/venvs/pycowsay/bin
+```
+
+Output:
+
+```bash
 total 28
 -rw-r--r-- 1 samvat samvat 2086 Jan  6 18:03 activate
 -rw-r--r-- 1 samvat samvat  949 Jan  6 18:03 activate.csh
@@ -152,7 +165,14 @@ total 28
 lrwxrwxrwx 1 samvat samvat    7 Jan  6 18:03 python -> python3
 lrwxrwxrwx 1 samvat samvat   16 Jan  6 18:03 python3 -> /usr/bin/python3
 lrwxrwxrwx 1 samvat samvat    7 Jan  6 18:03 python3.12 -> python3
+```
 
+- The `pycowsay` executable is listed with execute permissions (`-rwxrwxr-x`), and it points to the Python environment inside the virtual environment.
+- Other files such as `activate`, `activate.csh`, and `Activate.ps1` are used to activate the virtual environment for different shell types (e.g., Bash, CSH, PowerShell).
+- The symlinks for `python` and `python3` point to the Python version installed on your system.
+
+This confirms that `pipx` has properly set up the isolated environment and linked the executable to `~/.local/bin/`.
+```
 ## 3. Use `pipx` to Install Python Applications
 
 `pipx` is a tool that allows you to install and run Python applications in isolated environments. This is the recommended way to install Python packages that are command-line tools.
